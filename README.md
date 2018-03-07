@@ -23,3 +23,9 @@ Best Regards
 3. Click the merge icon and choose into the Tag "Merge Addon" your Tag.
 
 ![enter image description here](https://s2.imagebanana.com/file/180304/bbIfOJ11.png)
+
+
+
+//Requere Once Ninja Forms 
+
+require_once plugin_dir_path( __DIR__ ) . '/ninja-forms/ninja-forms.php'; 
