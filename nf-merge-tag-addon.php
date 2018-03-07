@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Ninja Forms Merge Tag Addon
-Plugin URI:  https://wordpress.org/plugins/ninja-forms-merge-tags-addon
+Plugin URI:  https://wordpress.org/plugin/nf-merge-tag-addon/
 Description: Add WordPress Tags to your Ninja Forms for the Admin Mail.
-Version:     1.0
+Version:     1.1
 Text Domain: nfmta
 Domain Path: /languages
 Author:      Benjamin Zekavica
@@ -23,27 +23,31 @@ You should have received a copy of the GNU General Public License
 along with Ninja Forms Merge Tag Addon. If not, see license.txt .
 
 
-Copyright by: 
-(c) 2018 by Benjamin Zekavica. All rights reserved. 
+Copyright by:
+(c) 2018 by Benjamin Zekavica. All rights reserved.
 
-Imprint: 
+Imprint:
 Benjamin Zekavica
 Oranienstraße 12
-52066 Aachen 
+52066 Aachen
 
 E-Mail: info@benjamin-zekavica.de
 Web: www.benjamin-zekavica.de
 
-I don't give support by Mail. Please write in the 
-community forum for questions and problems.  
+I don't give support by Mail. Please write in the
+community forum for questions and problems.
 
 --- Credits from Ninja Forms  ---
-Ninja Forms Core: The WP Ninjas (wpninjasllc, Kevin Stover, James Laws, 
+Ninja Forms Core: The WP Ninjas (wpninjasllc, Kevin Stover, James Laws,
 Kyle B. Johnson, klhall1987, krmoorhouse, jmcelhaney and Zachary Skaggs)
 
 */
 
-//Add Text Domain for Translation 
+// Need Ninja Forms
+
+require_once plugin_dir_path( DIR ) . '/ninja-forms/ninja-forms.php';
+
+//Add Text Domain for Translation
 
 
 if ( ! function_exists( 'nfmta_multiligual_textdomain' ) ) :
@@ -53,12 +57,12 @@ if ( ! function_exists( 'nfmta_multiligual_textdomain' ) ) :
   }
 
   add_action( 'plugins_loaded', 'nfmta_multiligual_textdomain' );
- 
+
 endif;
 
 
 
-// Add Action Notice 
+// Add Action Notice
 
 
 register_activation_hook( __FILE__, 'nfmta_admin_notice_example_activation_hook' );
@@ -73,15 +77,15 @@ add_action( 'admin_notices', 'nfmta_admin_notice_example_notice' );
 // Define the function
 
 function nfmta_admin_notice_example_notice(){
-	
+
     if( get_transient( 'nfmta-admin-notice-example' ) ){ ?>
 
         <div class="updated notice is-dismissible">
             <p>
     				  <strong>
-    				  	<?php _e( 'Thank you for using this plugin!' , 'nfmta' ) ; ?> 
+    				  	<?php _e( 'Thank you for using this plugin!' , 'nfmta' ) ; ?>
     				  </strong><br />
-    				    <?php _e( 'Go now to Ninja Forms and edit the admin mail.' , 'nfmta' ); ?> 
+    				    <?php _e( 'Go now to Ninja Forms and edit the admin mail.' , 'nfmta' ); ?>
     				     <br /><br />
     				     <?php _e( 'Kind Regards', 'nfmta' ); ?>
     				     <br />
@@ -94,9 +98,9 @@ function nfmta_admin_notice_example_notice(){
         <?php delete_transient( 'nfmta-admin-notice-example' );
 
     }
-} // End 
+} // End
 
-// Define the function 
+// Define the function
 
 add_action( 'ninja_forms_loaded', 'nfmta_register_merge_tags' );
 
@@ -104,37 +108,37 @@ function nfmta_register_merge_tags(){
   Ninja_Forms()->merge_tags[ 'nfmta_merge_tags' ] = new NFMTA_AddonTag();
 }
 
-// Add WP Content Merge Tag 
+// Add WP Content Merge Tag
 
 class NFMTA_AddonTag extends NF_Abstracts_MergeTags {
-	
+
 	protected $id = 'nfmta_merge_tags';
-  
+
 	  public function __construct(){
 		parent::__construct();
-		
+
 		$this->title = __( 'Merge Addon', 'nfmta' );
-		
+
 		$this->merge_tags = array(
-		  
+
 			'nfmtacontent' => array(
 			  'id' => 'nfmta_merge_content',
-			  'tag' => '{nfmta:nfmtacontent}', 
-			  'label' => __( 'WordPress Single Page Content', 'nfmta' ), 
-			  'callback' => 'nfmta_merge_content' 
+			  'tag' => '{nfmta:nfmtacontent}',
+			  'label' => __( 'WordPress Single Page Content', 'nfmta' ),
+			  'callback' => 'nfmta_merge_content'
 		  ),
 		);
-		
+
 		add_action( 'init', array( $this, 'init' ) );
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 	  }
- 
-   
+
+
 	  public function init(){ /* This section intentionally left blank. */ }
 	  public function admin_init(){ /* This section intentionally left blank. */ }
-  
+
     // Add Post Meta from WordPress
-	
+
 	protected function post_id(){
 		global $post;
 		if ( is_admin() && defined( 'DOING_AJAX' ) && DOING_AJAX ) {
@@ -142,19 +146,19 @@ class NFMTA_AddonTag extends NF_Abstracts_MergeTags {
 		} elseif( $post ) {
 			$post_id = $post->ID;
 		} else {
-			return false; 
+			return false;
 		}
 		return $post_id;
 	}
-	
-	// Return the Content 
+
+	// Return the Content
 	protected function nfmta_merge_content(){
-			
+
 		$post_id = $this->post_id();
 		if( ! $post_id ) return;
 		$post = get_post( $post_id );
 		return ( $post ) ? $post->post_content : '';
-		
+
 	}
-	
+
 }
