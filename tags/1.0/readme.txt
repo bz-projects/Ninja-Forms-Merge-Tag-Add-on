@@ -1,4 +1,4 @@
-﻿=== Ninja Forms Merge Tag Addon ===
+=== Ninja Forms Merge Tag Addon ===
 Author URI: https://www.benjamin-zekavica.de
 Plugin URI: https://wordpress.org/plugins/ninja-forms-merge-tags-addon
 Contributors: Benjamin_Zekavica
@@ -63,7 +63,7 @@ https://github.com/BenjaminZekavica/Ninja-Forms-Merge-Tag-Add-on
 
 == Changelog ==
 
-= 1.0: 05th of March 2018 =
+= 1.0: 07th of March 2018 =
 
 * Inital Release
 
