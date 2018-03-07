@@ -45,7 +45,7 @@ Kyle B. Johnson, klhall1987, krmoorhouse, jmcelhaney and Zachary Skaggs)
 
 // Need Ninja Forms
 
-require_once plugin_dir_path( DIR ) . '/ninja-forms/ninja-forms.php';
+require_once plugin_dir_path(__DIR__) . '/ninja-forms/ninja-forms.php';
 
 //Add Text Domain for Translation
 
