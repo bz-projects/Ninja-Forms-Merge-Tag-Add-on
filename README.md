@@ -1,4 +1,4 @@
-# WordPress Plugin Ninja Forms Mergetag Add-on 1.1
+# WordPress Plugin Ninja Forms Mergetag Add-on 2.0
 
 **Ninja Forms Admin Mail Customizer - New Tag "THE_Content"**
 
@@ -13,8 +13,7 @@ Best Regards
 
 ## **Features of the plugin include:**
 
- 
- * Return your Content to Mails 
+  * Return your Content to Mails 
 * More features and new tags comes in next updates
 
 **Installation:** 
