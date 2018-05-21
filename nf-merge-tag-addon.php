@@ -3,7 +3,7 @@
 Plugin Name: Ninja Forms Merge Tag Addon
 Plugin URI:  https://wordpress.org/plugin/nf-merge-tag-addon/
 Description: Add WordPress Tags to your Ninja Forms for the Admin Mail.
-Version:     1.1
+Version:     2.0
 Text Domain: nfmta
 Domain Path: /languages
 Author:      Benjamin Zekavica
@@ -100,6 +100,8 @@ function nfmta_admin_notice_example_notice(){
     }
 } // End
 
+
+
 // Define the function
 
 add_action( 'ninja_forms_loaded', 'nfmta_register_merge_tags' );
@@ -133,9 +135,6 @@ class NFMTA_AddonTag extends NF_Abstracts_MergeTags {
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 	  }
 
-
-	  public function init(){ /* This section intentionally left blank. */ }
-	  public function admin_init(){ /* This section intentionally left blank. */ }
 
     // Add Post Meta from WordPress
 
