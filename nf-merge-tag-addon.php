@@ -3,7 +3,7 @@
 Plugin Name: Ninja Forms Merge Tag Addon
 Plugin URI:  https://wordpress.org/plugin/nf-merge-tag-addon/
 Description: Add WordPress Tags to your Ninja Forms for the Admin Mail.
-Version:     2.0
+Version:     2.1
 Text Domain: nfmta
 Domain Path: /languages
 Author:      Benjamin Zekavica
@@ -43,9 +43,8 @@ Kyle B. Johnson, klhall1987, krmoorhouse, jmcelhaney and Zachary Skaggs)
 
 */
 
-// Need Ninja Forms
+if ( ! defined( 'ABSPATH' ) ) exit;
 
-require_once plugin_dir_path(__DIR__) . '/ninja-forms/ninja-forms.php';
 
 //Add Text Domain for Translation
 
@@ -55,7 +54,6 @@ if ( ! function_exists( 'nfmta_multiligual_textdomain' ) ) :
   function nfmta_multiligual_textdomain() {
 	load_plugin_textdomain( 'nfmta' , false, dirname( plugin_basename( __FILE__ ) ).'/languages' );
   }
-
   add_action( 'plugins_loaded', 'nfmta_multiligual_textdomain' );
 
 endif;
@@ -70,7 +68,6 @@ register_activation_hook( __FILE__, 'nfmta_admin_notice_example_activation_hook'
 function nfmta_admin_notice_example_activation_hook() {
     set_transient( 'nfmta-admin-notice-example', true, 5 );
 }
-
 add_action( 'admin_notices', 'nfmta_admin_notice_example_notice' );
 
 
@@ -80,30 +77,31 @@ function nfmta_admin_notice_example_notice(){
 
     if( get_transient( 'nfmta-admin-notice-example' ) ){ ?>
 
-        <div class="updated notice is-dismissible">
+  
+		<div class="updated notice is-dismissible">
             <p>
-    				  <strong>
-    				  	<?php _e( 'Thank you for using this plugin!' , 'nfmta' ) ; ?>
-    				  </strong><br />
-    				    <?php _e( 'Go now to Ninja Forms and edit the admin mail.' , 'nfmta' ); ?>
-    				     <br /><br />
-    				     <?php _e( 'Kind Regards', 'nfmta' ); ?>
-    				     <br />
-    				    <strong>
-    				     Benjamin Zekavica
-    				    </strong>
-		    	   </p>
+                <strong>
+				  <?php _e( 'Thank you for using this plugin!' , 'nfmta' ) ; ?>   
+                </strong>
+            </p>
+            <p>
+                <strong>
+				  <?php _e( 'Go now to Ninja Forms and edit the admin mail.' , 'nfmta' ); ?>
+                </strong>
+            </p>
+            <p>
+				<?php _e( 'Kind Regards', 'nfmta' ); ?>
+                <strong>
+                   Benjamin Zekavica
+                </strong>
+            </p>
         </div>
+
 
         <?php delete_transient( 'nfmta-admin-notice-example' );
 
     }
-} // End
-
-
-
-// Define the function
-
+}
 add_action( 'ninja_forms_loaded', 'nfmta_register_merge_tags' );
 
 function nfmta_register_merge_tags(){
@@ -111,7 +109,6 @@ function nfmta_register_merge_tags(){
 }
 
 // Add WP Content Merge Tag
-
 class NFMTA_AddonTag extends NF_Abstracts_MergeTags {
 
 	protected $id = 'nfmta_merge_tags';

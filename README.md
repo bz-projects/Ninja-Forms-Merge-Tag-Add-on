@@ -1,4 +1,4 @@
-# WordPress Plugin Ninja Forms Mergetag Add-on 2.0
+# WordPress Plugin Ninja Forms Mergetag Add-on 2.1
 
 **Ninja Forms Admin Mail Customizer - New Tag "THE_Content"**
 
