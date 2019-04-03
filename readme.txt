@@ -5,9 +5,9 @@ Contributors: Benjamin_Zekavica
 Donate link: https://www.paypal.me/benjaminzekavica
 Tags: ninjaforms, ninja forms, merge tag, addon, wordpress content, ninja forms admin mail, addon set, forms, single pages
 Requires at least: 4.9
-Tested up to: 5.0
+Tested up to: 5.1.1
 Requires PHP: 7.0
-Stable tag: 2.1
+Stable tag: 2.2
 License: GNU Version 2 or Any Later Version
 License URI: http://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -20,6 +20,8 @@ Add new merge tags for WordPress Ninja Forms. More Tags are coming soon!
 Ninja is a great plugin to create easily now form and application, but if you want to display some things into the mail, you must write
 new tags and more. With Ninja Forms Merge Tag Addon you can add the post content from your single page into your Post Type. Ninja Forms can
 read it and give it in your Admin Mail. In the next updates I work for more Ninja Forms Tags.
+
+Notice: In current version of Ninja Forms this Plugin can't work, because the Ninja Forms Team no support it. Please contact Ninja Forms Team for more Details.
 
 = Features of the plugin include: =
 
@@ -62,6 +64,15 @@ https://github.com/BenjaminZekavica/Ninja-Forms-Merge-Tag-Add-on
 2. Choose the Tab "Merge Addon"
 
 == Changelog ==
+
+= 2.2: 3h of April 2019 =
+
+* Add Security Update 
+* Add Better Code Quality 
+* Add WordPress 5.1.1 Support Update 
+* Ninja Forms Required Message 
+* Remove Error Messages if Ninja Forms no support functions
+
 
 = 2.1: 21th of May 2018 =
 
