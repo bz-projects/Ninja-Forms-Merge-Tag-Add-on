@@ -5,9 +5,9 @@ Contributors: Benjamin_Zekavica
 Donate link: https://www.paypal.me/benjaminzekavica
 Tags: ninjaforms, ninja forms, merge tag, addon, wordpress content, ninja forms admin mail, addon set, forms, single pages
 Requires at least: 4.9
-Tested up to: 5.1.1
+Tested up to: 5.2.2
 Requires PHP: 7.0
-Stable tag: 2.2
+Stable tag: 2.3
 License: GNU Version 2 or Any Later Version
 License URI: http://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -64,6 +64,15 @@ https://github.com/BenjaminZekavica/Ninja-Forms-Merge-Tag-Add-on
 2. Choose the Tab "Merge Addon"
 
 == Changelog ==
+
+
+= 2.2: 15h of August 2019 =
+
+* Content Merge now works fine with new version of Ninja Forms 
+* Add WordPress 5.2.2 Support Update 
+* Fixed condition installed Ninja Forms Required Message 
+* New structured of plugin
+* And fixed bugs and tweaks
 
 = 2.2: 3h of April 2019 =
 
