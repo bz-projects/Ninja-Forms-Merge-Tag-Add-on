@@ -66,7 +66,7 @@ https://github.com/BenjaminZekavica/Ninja-Forms-Merge-Tag-Add-on
 == Changelog ==
 
 
-= 2.2: 15h of August 2019 =
+= 2.3: 15h of August 2019 =
 
 * Content Merge now works fine with new version of Ninja Forms 
 * Add WordPress 5.2.2 Support Update 
