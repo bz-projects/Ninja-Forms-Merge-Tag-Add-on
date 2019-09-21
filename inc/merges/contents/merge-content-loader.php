@@ -12,14 +12,8 @@ function nfm_pluginchecker() {
 add_action( 'admin_init', 'nfm_pluginchecker' );
 
 
-if( class_exists('NF_Abstracts_MergeTags') ) {
-
-    function nfmta_register_merge_tags(){
-        require_once 'class.nfmergecontent.php';
-        Ninja_Forms()->merge_tags[ 'nfmta_merge_tags' ] = new NFMTA_AddonTag();
-    }
-    add_action( 'ninja_forms_loaded', 'nfmta_register_merge_tags' );
-
-}else {
-    add_action( 'admin_notices', 'ninja_form_no_installed' );
+function my_register_merge_tags(){
+    require_once 'class.nfmergecontent.php';
+    Ninja_Forms()->merge_tags[ 'nfmta_merge_tags' ] = new NFMTA_AddonTag();
 }
+add_action( 'ninja_forms_loaded', 'my_register_merge_tags' );
