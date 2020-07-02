@@ -19,30 +19,32 @@
 
 require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
 
-function nfmta_required_plugins_register_required_plugins() {
 
-	$plugins = array(
+if( !function_exists('nfmta_required_plugins_register_required_plugins') ){
 
-		array(
-			'name'      => 'Ninja Forms – The Easy and Powerful Forms Builder',
-			'slug'      => 'ninja-forms',
-			'required'  => true,
-		)
+	function nfmta_required_plugins_register_required_plugins() {
 
-	);
-
-	$config = array(
-		'id'           => 'nfmta',                 
-		'default_path' => '',                      
-		'menu'         => 'tgmpa-install-plugins', 
-		'parent_slug'  => 'plugins.php',           
-		'capability'   => 'manage_options',    		
-		'has_notices'  => true,                    
-		'dismissable'  => true,                    
-		'dismiss_msg'  => '',                      
-		'is_automatic' => false,                   
-		'message'      => '',                      
-	);
-	tgmpa( $plugins, $config );
+		$plugins = array(
+			array(
+				'name'      => 'Ninja Forms – The Easy and Powerful Forms Builder',
+				'slug'      => 'ninja-forms',
+				'required'  => true,
+			)
+		);
+	
+		$config = array(
+			'id'           => 'nfmta',                 
+			'default_path' => '',                      
+			'menu'         => 'tgmpa-install-plugins', 
+			'parent_slug'  => 'plugins.php',           
+			'capability'   => 'manage_options',    		
+			'has_notices'  => true,                    
+			'dismissable'  => true,                    
+			'dismiss_msg'  => '',                      
+			'is_automatic' => false,                   
+			'message'      => '',                      
+		);
+		tgmpa( $plugins, $config );
+	}
+	add_action( 'tgmpa_register', 'nfmta_required_plugins_register_required_plugins' );
 }
-add_action( 'tgmpa_register', 'nfmta_required_plugins_register_required_plugins' );
