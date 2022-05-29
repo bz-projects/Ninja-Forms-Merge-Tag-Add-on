@@ -5,7 +5,7 @@ Contributors: Benjamin_Zekavica
 Donate link: https://www.paypal.me/benjaminzekavica
 Tags: ninjaforms, ninja forms, merge tag, addon, wordpress content, ninja forms admin mail, addon set, forms, single pages
 Requires at least: 4.9
-Tested up to: 5.9
+Tested up to: 6.0
 Requires PHP: 7.0
 Stable tag: 2.8
 License: GNU Version 2 or Any Later Version
